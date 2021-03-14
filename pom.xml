@@ -3,12 +3,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.example</groupId>
-	<artifactId>devops</artifactId>
+	<artifactId>springboot-devops</artifactId>
 	<version>1.8.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>devops</name>
-	<description>DevOps Demo Project</description>
+	<name>springboot-devops</name>
+	<description>springboot DevOps Demo Project</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -29,19 +29,19 @@
 		<repository>
 			<id>release</id>
 			<name>releases</name>
-			<url>http://localhost:8081/artifactory/libs-release-local</url>
+			<url>http://localhost:8087/artifactory/libs-release-local</url>
 		</repository>
 		<snapshotRepository>
 			<id>snapshot</id>
 			<name>snapshots</name>
-			<url>http://localhost:8081/artifactory/libs-snapshot-local</url>
+			<url>http://localhost:8087/artifactory/libs-snapshot-local</url>
 		</snapshotRepository>
 	</distributionManagement>
 
 	<scm>
-		<connection>scm:git:git@github.com:nandudemy/devops.git</connection>
-		<developerConnection>scm:git:git@github.com:nandudemy/devops.git</developerConnection>
-		<url>git@github.com:nandudemy/devops.git</url>
+		<connection>scm:git@github.com:hernanku/springboot-devops.git</connection>
+		<developerConnection>scm:git@github.com:hernanku/springboot-devops.git</developerConnection>
+		<url>git@github.com:hernanku/springboot-devops.git</url>
 		<tag>v1.6.1</tag>
 	</scm>
 
