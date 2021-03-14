@@ -13,7 +13,6 @@ pipeline {
          agent {
             docker {
                image 'maven3:0.2.1'
-               resuseNode true
             }
          }
          steps {
