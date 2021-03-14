@@ -12,7 +12,7 @@ pipeline {
       stage('Build') {
          agent {
             docker {
-               image 'maven3:0.2.1'
+               image 'hernanku/maven3:latest'
             }
          }
          steps {
