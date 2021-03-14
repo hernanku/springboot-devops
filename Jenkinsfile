@@ -6,7 +6,7 @@ pipeline {
    stages {
       stage('Checkout') {
          steps {
-            git branch: '${params.BRANCH}', url: "https://github.com/hernanku/store-webapp-sample.git"
+            git branch: "${params.BRANCH}", url: "https://github.com/hernanku/springboot-devops.git"
          }
       }
       stage('Build') {
