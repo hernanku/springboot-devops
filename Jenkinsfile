@@ -5,7 +5,8 @@ pipeline {
    }
    stages {
       stage('Checkout') {
-         git branch: '${params.BRANCH}', url: "https://github.com/hernanku/store-webapp-sample.git"
+         steps {
+            git branch: '${params.BRANCH}', url: "https://github.com/hernanku/store-webapp-sample.git"
          }
       }
       stage('Build') {
@@ -18,6 +19,7 @@ pipeline {
          steps {
             sh "mvn -Dmaven.test.failure.ignore clean package"
          }
+      }
    }
 } 
 
