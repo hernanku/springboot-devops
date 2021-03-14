@@ -1,0 +1,11 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sun Mar 14 15:24:19 GMT 2021
+http\://repo.spring.io/ext-release-local/.error=Could not transfer artifact org.jboss.shrinkwrap\:shrinkwrap-bom\:pom\:1.2.3 from/to spring-ext (http\://repo.spring.io/ext-release-local/)\: Authorization failed for http\://repo.spring.io/ext-release-local/org/jboss/shrinkwrap/shrinkwrap-bom/1.2.3/shrinkwrap-bom-1.2.3.pom 403 Forbidden
+http\://repo.spring.io/snapshot/.error=Could not transfer artifact org.jboss.shrinkwrap\:shrinkwrap-bom\:pom\:1.2.3 from/to spring-snapshots (http\://repo.spring.io/snapshot)\: Authorization failed for http\://repo.spring.io/snapshot/org/jboss/shrinkwrap/shrinkwrap-bom/1.2.3/shrinkwrap-bom-1.2.3.pom 403 Forbidden
+http\://repo.spring.io/milestone/.error=Could not transfer artifact org.jboss.shrinkwrap\:shrinkwrap-bom\:pom\:1.2.3 from/to spring-milestones (http\://repo.spring.io/milestone)\: Authorization failed for http\://repo.spring.io/milestone/org/jboss/shrinkwrap/shrinkwrap-bom/1.2.3/shrinkwrap-bom-1.2.3.pom 403 Forbidden
+5577d3e5a4f7f01fad15a0d7d39c8a72e5adb7bf@default-release-http\://localhost\:8087/artifactory/libs-release-local/.lastUpdated=1615735456597
+@default-spring-snapshots-http\://repo.spring.io/snapshot/.lastUpdated=1615735458659
+https\://repo.maven.apache.org/maven2/.lastUpdated=1615735459198
+@default-spring-milestones-http\://repo.spring.io/milestone/.lastUpdated=1615735457147
+@default-spring-ext-http\://repo.spring.io/ext-release-local/.lastUpdated=1615735456854
+http\://localhost\:8087/artifactory/libs-release-local/.error=Could not transfer artifact org.jboss.shrinkwrap\:shrinkwrap-bom\:pom\:1.2.3 from/to release (http\://localhost\:8087/artifactory/libs-release-local)\: Transfer failed for http\://localhost\:8087/artifactory/libs-release-local/org/jboss/shrinkwrap/shrinkwrap-bom/1.2.3/shrinkwrap-bom-1.2.3.pom
