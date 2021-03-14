@@ -1,5 +1,5 @@
 pipeline {
-   agent any
+   agent none
    parameters {
       gitParameter branchFilter: 'origin/(.*)', defaultValue: 'develop', name: 'BRANCH', type: 'PT_BRANCH'
    }
@@ -19,21 +19,35 @@ pipeline {
             sh "mvn -Dmaven.test.failure.ignore clean"
          }
       }
-      stage('Unit Test') {
+      stage('Unit Test'){
          steps {
             script {
                sh """
                test_container_id=\$(docker create test-container:1.0 test)
-               docker start -a \$test_container_id
-               docker cp "\$test_container_id:${workdir}" "."
+               docker create -a \$test_container_id
+               docker cp "/var/www/java/target/surefire-reports" "."
                """
-               junit '**/target/surefire-reports/TEST-*.xml'
-               archive 'target/*.jar'
 
+               junit 'surefire-reports'
+               archive 'target/*jar'
             }
-
          }
       }
+      // stage('Unit Test') {
+      //    steps {
+      //       script {
+      //          sh """
+      //          test_container_id=\$(docker create test-container:1.0 test)
+      //          docker create -a \$test_container_id
+      //          docker cp "/var/www/java/target/surefire-reports" "."
+      //          """
+      //          junit 'surefire-reports'
+      //          archive 'target/*.jar'
+
+      //       }
+
+      //    }
+      // }
    }
    post { 
         always { 
