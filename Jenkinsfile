@@ -8,12 +8,11 @@ pipeline {
          steps {
             script {
                git branch: "${params.BRANCH}", url: "https://github.com/hernanku/springboot-devops.git"
-               docker.image('hernanku/maven3:latest').inside('-v $HOME:/root') {
+               docker.image('hernanku/maven3:latest').inside {
                   sh """
-                  mvn clean package -Ddockerfile.build.skip
+                  mvn clean package -Dmaven.test.failure.ignore -Ddockerfile.build.skip -DskipTests 
                   """
-                  junit 'target/surefire-reports/TEST-*.xml'
-                  archiveArtifacts 'target/*.war'
+                //   junit 'target/surefire-reports/TEST-*.xml'
                }
             }
          }
@@ -21,9 +20,9 @@ pipeline {
       stage("Intergration Test"){
           steps{
              script {
-               docker.image('hernanku/maven3:latest').inside('-v $HOME:/root') {
+               docker.image('hernanku/maven3:1.0.1').inside {
                   sh """
-                  mvn clean verify 
+                  mvn clean verify -Dmaven.test.skip=true -Ddockerfile.build.skip -Dmaven.test.failure.ignore
                   """
                }
             }  
@@ -32,10 +31,12 @@ pipeline {
       stage("Upload Artifact to Artifactory server"){
           steps{
              script {
-               docker.image('hernanku/maven3:latest').inside('-v $HOME:/root') {
+               docker.image('hernanku/maven3:1.0.1').inside {
                   sh """
-                  ls -altr
+                  ls -altr .m2
+                  mvn clean deploy -Dmaven.test.skip=true -Ddockerfile.build.skip -Dmaven.test.failure.ignore -DskipTests 
                   """
+                  archiveArtifacts 'target/*.war'
                }
             }  
          }  
