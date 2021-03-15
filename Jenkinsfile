@@ -6,60 +6,19 @@ pipeline {
    stages {
       stage('Checkout') {
          steps {
-            git branch: "${params.BRANCH}", url: "https://github.com/hernanku/springboot-devops.git"
-         }
-      }
-      
-      stage('Build') {
-         agent {
-            docker {
-               image 'hernanku/maven3:latest'
-               args '-v $HOME:/root/'
-            }
-         }
-         steps {
-            sh """
-            ls -l
-            mvn -Dmaven.test.failure.ignore clean
-            """
-         }
-      }
-      stage('Unit Test'){
-         agent {
-            docker {
-               image 'hernanku/maven3:latest'
-               args '-v $HOME:/root'
-            }
-         }
-         steps {
             script {
-               junit '**/target/surefire-reports/TEST-*.xml'
-               archive '**/target/*jar'
+               git branch: "${params.BRANCH}", url: "https://github.com/hernanku/springboot-devops.git"
+               docker.image('hernanku/maven3:latest').inside('-v $HOME:/root') {
+                  sh """
+                  mvn clean package
+                  pwd
+                  ls -l
+                  """
+                  junit 'target/surefire-reports/TEST-*.xml'
+                  archiveArtifacts 'target/*.jar'
+               }
             }
          }
       }
-      // stage('Unit Test') {
-      //    steps {
-      //       script {
-      //          sh """
-      //          test_container_id=\$(docker create test-container:1.0 test)
-      //          docker create -a \$test_container_id
-      //          docker cp "/var/www/java/target/surefire-reports" "."
-      //          """
-      //          junit 'surefire-reports'
-      //          archive 'target/*.jar'
-
-      //       }
-
-      //    }
-      // }
    }
-   post { 
-        always { 
-            cleanWs()
-        }
-    }
 } 
-
-      
-
