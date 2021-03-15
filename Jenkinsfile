@@ -14,11 +14,14 @@ pipeline {
          agent {
             docker {
                image 'hernanku/maven3:latest'
-               args '-v $HOME:/root'
+               args '-v $HOME:/root/'
             }
          }
          steps {
-            sh "mvn -Dmaven.test.failure.ignore clean"
+            sh """
+            ls -l
+            mvn -Dmaven.test.failure.ignore clean
+            """
          }
       }
       stage('Unit Test'){
