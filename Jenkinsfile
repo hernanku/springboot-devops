@@ -1,5 +1,5 @@
 pipeline {
-   agent none
+   agent any
    parameters {
       gitParameter branchFilter: 'origin/(.*)', defaultValue: 'develop', name: 'BRANCH', type: 'PT_BRANCH'
    }
@@ -9,6 +9,7 @@ pipeline {
             git branch: "${params.BRANCH}", url: "https://github.com/hernanku/springboot-devops.git"
          }
       }
+      
       stage('Build') {
          agent {
             docker {
@@ -20,18 +21,15 @@ pipeline {
          }
       }
       stage('Unit Test'){
-         parallel {
-            stage('') {
-               agent any
-               steps {
-                  script {
-                     docker_image.inside("--entrypoint='/entrypoint.sh'") {
-
-                        junit '**/target/surefire-reports/TEST-*.xml'
-                        archive '**/target/*jar'
-                     }
-                  }
-               }
+         agent {
+            docker {
+               image 'hernanku/maven3:latest'
+            }
+         }
+         steps {
+            script {
+               junit '**/target/surefire-reports/TEST-*.xml'
+               archive '**/target/*jar'
             }
          }
       }
