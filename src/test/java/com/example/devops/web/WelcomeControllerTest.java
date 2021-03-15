@@ -1,4 +1,4 @@
-package com.example.devops.web;
+package com.example.springbootdevops.web;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;

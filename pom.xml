@@ -5,7 +5,7 @@
 	<groupId>com.example</groupId>
 	<artifactId>springboot-devops</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>springboot-devops</name>
 	<description>springboot DevOps Demo Project</description>
@@ -23,6 +23,9 @@
 		<java.version>1.8</java.version>
 		<surefire.version>2.17</surefire.version>
 		<jacoco.version>0.7.9</jacoco.version>
+		<dockerfile-maven-version>1.4.3</dockerfile-maven-version>
+		<project.version>1.0</project.version>
+		<project.build.finalName>springboot-devops</project.build.finalName>
 	</properties>
 
 	<distributionManagement>
@@ -89,6 +92,27 @@
 					<tagNameFormat>v@{project.version}</tagNameFormat>
 					<autoVersionSubmodules>true</autoVersionSubmodules>
 				</configuration>
+			</plugin>
+			<plugin>
+			<groupId>com.spotify</groupId>
+			<artifactId>dockerfile-maven-plugin</artifactId>
+			<version>${dockerfile-maven-version}</version>
+			<executions>
+				<execution>
+				<id>default</id>
+				<goals>
+					<goal>build</goal>
+					<!-- <goal>push</goal> -->
+				</goals>
+				</execution>
+			</executions>
+			<configuration>
+				<repository>hernanku/sprinboot-devops-demo</repository>
+				<tag>${project.version}</tag>
+				<buildArgs>
+				<WAR_FILE>target/{project.build.finalName}.war</WAR_FILE>
+				</buildArgs>
+			</configuration>
 			</plugin>
 			<plugin>
 			  <groupId>org.apache.maven.plugins</groupId>

@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sun Mar 14 15:24:26 GMT 2021
+5577d3e5a4f7f01fad15a0d7d39c8a72e5adb7bf@default-release-http\://localhost\:8087/artifactory/libs-release-local/.lastUpdated=1615735466499
+https\://repo.maven.apache.org/maven2/.lastUpdated=1615735466618
+http\://localhost\:8087/artifactory/libs-release-local/.error=Could not transfer artifact org.ow2.asm\:asm\:pom\:5.0.3 from/to release (http\://localhost\:8087/artifactory/libs-release-local)\: Transfer failed for http\://localhost\:8087/artifactory/libs-release-local/org/ow2/asm/asm/5.0.3/asm-5.0.3.pom

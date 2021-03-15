@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sun Mar 14 15:24:29 GMT 2021
+5577d3e5a4f7f01fad15a0d7d39c8a72e5adb7bf@default-release-http\://localhost\:8087/artifactory/libs-release-local/.lastUpdated=1615735469124
+https\://repo.maven.apache.org/maven2/.lastUpdated=1615735469213
+http\://localhost\:8087/artifactory/libs-release-local/.error=Could not transfer artifact org.skyscreamer\:jsonassert\:pom\:1.4.0 from/to release (http\://localhost\:8087/artifactory/libs-release-local)\: Transfer failed for http\://localhost\:8087/artifactory/libs-release-local/org/skyscreamer/jsonassert/1.4.0/jsonassert-1.4.0.pom
