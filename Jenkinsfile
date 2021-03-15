@@ -13,6 +13,7 @@ pipeline {
                   mvn clean package
                   pwd
                   ls -l
+                  ls -ltr target
                   """
                   junit 'target/surefire-reports/TEST-*.xml'
                   archiveArtifacts 'target/*.jar'
