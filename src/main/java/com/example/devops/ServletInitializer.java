@@ -1,4 +1,4 @@
-package com.example.devops;
+package com.example.springbootdevops;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;

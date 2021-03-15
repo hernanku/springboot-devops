@@ -10,7 +10,7 @@ pipeline {
                git branch: "${params.BRANCH}", url: "https://github.com/hernanku/springboot-devops.git"
                docker.image('hernanku/maven3:latest').inside('-v $HOME:/root') {
                   sh """
-                  mvn clean package
+                  mvn clean package -Ddockerfile.build.skip
                   pwd
                   ls -l
                   ls -ltr target
