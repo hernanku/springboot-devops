@@ -29,6 +29,17 @@ pipeline {
             }  
          }  
       }
+      stage("Upload Artifact to Artifactory server"){
+          steps{
+             script {
+               docker.image('hernanku/maven3:latest').inside('-v $HOME:/root') {
+                  sh """
+                  mvn clean deploy
+                  """
+               }
+            }  
+         }  
+      }
    }
    // post {
    //    always {
