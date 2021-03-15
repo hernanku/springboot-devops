@@ -10,16 +10,40 @@ pipeline {
                git branch: "${params.BRANCH}", url: "https://github.com/hernanku/springboot-devops.git"
                docker.image('hernanku/maven3:latest').inside('-v $HOME:/root') {
                   sh """
-                  mvn clean package -Ddockerfile.build.skip -DskipTests 
-                  pwd
-                  ls -l
-                  ls -ltr target
+                  mvn clean package -Ddockerfile.build.skip
                   """
                   junit 'target/surefire-reports/TEST-*.xml'
-                  archiveArtifacts 'target/*.jar'
+                  archiveArtifacts 'target/*.war'
                }
             }
          }
       }
+      stage("Intergration Test"){
+          steps{
+             script {
+               docker.image('hernanku/maven3:latest').inside('-v $HOME:/root') {
+                  sh """
+                  mvn clean verify 
+                  """
+               }
+            }  
+         }  
+      }
+      stage("Upload Artifact to Artifactory server"){
+          steps{
+             script {
+               docker.image('hernanku/maven3:latest').inside('-v $HOME:/root') {
+                  sh """
+                  ls -altr
+                  """
+               }
+            }  
+         }  
+      }
    }
-} 
+   // post {
+   //    always {
+   //       cleanWs()
+   //    }
+   // } 
+}

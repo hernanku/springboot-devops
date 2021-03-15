@@ -5,7 +5,7 @@
 	<groupId>com.example</groupId>
 	<artifactId>springboot-devops</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>springboot-devops</name>
 	<description>springboot DevOps Demo Project</description>
