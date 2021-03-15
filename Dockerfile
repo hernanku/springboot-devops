@@ -1,8 +1,10 @@
 FROM adoptopenjdk/openjdk8:alpine
-RUN addgroup -S spring && adduser -S spring -G spring
+RUN addgroup -S spring \
+    && adduser -S spring -G spring \
+    && mkdir -p /app
 USER spring:spring
-ARG APP_NAME=springboots-devops
-ARG JAR_FILE=${APP_NAME}/*.jar
-ADD $JAR_FILE /app/app.jar
+WORKDIR /app
+
 EXPOSE 8080
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app/app.jar"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app/*.jar"]
+
