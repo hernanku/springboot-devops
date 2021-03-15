@@ -6,7 +6,6 @@
 .settings
 .springBeans
 .vscode
-.m2/repository
 bin
 build
 !/**/src/**/bin
