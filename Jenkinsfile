@@ -14,6 +14,7 @@ pipeline {
          agent {
             docker {
                image 'hernanku/maven3:latest'
+               args '-v $HOME:/root'
             }
          }
          steps {
@@ -24,6 +25,7 @@ pipeline {
          agent {
             docker {
                image 'hernanku/maven3:latest'
+               args '-v $HOME:/root'
             }
          }
          steps {
