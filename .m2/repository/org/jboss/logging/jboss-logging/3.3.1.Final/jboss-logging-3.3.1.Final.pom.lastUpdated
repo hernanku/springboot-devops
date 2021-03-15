@@ -1,5 +1,0 @@
-#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
-#Sun Mar 14 15:24:21 GMT 2021
-5577d3e5a4f7f01fad15a0d7d39c8a72e5adb7bf@default-release-http\://localhost\:8087/artifactory/libs-release-local/.lastUpdated=1615735460899
-https\://repo.maven.apache.org/maven2/.lastUpdated=1615735461023
-http\://localhost\:8087/artifactory/libs-release-local/.error=Could not transfer artifact org.jboss.logging\:jboss-logging\:pom\:3.3.1.Final from/to release (http\://localhost\:8087/artifactory/libs-release-local)\: Transfer failed for http\://localhost\:8087/artifactory/libs-release-local/org/jboss/logging/jboss-logging/3.3.1.Final/jboss-logging-3.3.1.Final.pom

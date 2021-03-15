@@ -1,5 +1,0 @@
-#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
-#Sun Mar 14 15:24:40 GMT 2021
-5577d3e5a4f7f01fad15a0d7d39c8a72e5adb7bf@default-release-http\://localhost\:8087/artifactory/libs-release-local/.lastUpdated=1615735472976
-https\://repo.maven.apache.org/maven2/.lastUpdated=1615735480929
-http\://localhost\:8087/artifactory/libs-release-local/.error=Could not transfer artifact org.springframework.boot\:spring-boot-starter\:jar\:1.5.6.RELEASE from/to release (http\://localhost\:8087/artifactory/libs-release-local)\: Transfer failed for http\://localhost\:8087/artifactory/libs-release-local/org/springframework/boot/spring-boot-starter/1.5.6.RELEASE/spring-boot-starter-1.5.6.RELEASE.jar
