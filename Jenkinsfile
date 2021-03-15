@@ -1,5 +1,5 @@
 pipeline {
-   agent { label 'docker' }
+   agent any
    parameters {
       gitParameter branchFilter: 'origin/(.*)', defaultValue: 'develop', name: 'BRANCH', type: 'PT_BRANCH'
    }
