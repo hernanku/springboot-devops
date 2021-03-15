@@ -34,7 +34,7 @@ pipeline {
              script {
                docker.image('hernanku/maven3:latest').inside('-v $HOME:/root') {
                   sh """
-                  mvn clean deploy
+                  ls -altr
                   """
                }
             }  
